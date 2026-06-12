@@ -1,0 +1,203 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { AUTHOR } from "../consts";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead
+      title="CV — Federico Upegui | Backend Node.js y DevOps"
+      description="CV de Federico Upegui Restrepo: 4+ años como desarrollador Node.js, TypeScript, NestJS, AWS, Docker y CI/CD en Medellín, Colombia. Descárgalo en PDF."
+      lang="es"
+      selfPath="/cv/"
+      altPath="/en/cv/"
+    />
+  </head>
+  <body>
+    <Header lang="es" altPath="/en/cv" />
+    <main>
+      <header class="cv-header">
+        <h1>{AUTHOR.name}</h1>
+        <p class="role">{AUTHOR.jobTitleEs}</p>
+        <p class="meta">
+          {AUTHOR.location} ·
+          <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a> ·
+          <a href={AUTHOR.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+          <a href={AUTHOR.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
+        <div class="downloads">
+          <a class="btn primary" href="/CV-Federico-Upegui-ES.pdf" download>Descargar PDF (ES)</a>
+          <a class="btn" href="/CV-Federico-Upegui-EN.pdf" download>Download PDF (EN)</a>
+        </div>
+      </header>
+
+      <section>
+        <h2>Perfil</h2>
+        <p>
+          Desarrollador JavaScript con más de 4 años de experiencia, especializado en backend
+          con Node.js y prácticas DevOps. Diseño y construyo APIs REST y GraphQL, arquitecturas
+          de microservicios y pipelines de CI/CD, con despliegues en AWS y contenedores Docker.
+          Me interesan la seguridad web, la observabilidad y la automatización de procesos con
+          n8n e IA.
+        </p>
+      </section>
+
+      <section>
+        <h2>Experiencia</h2>
+
+        <article>
+          <h3>Desarrollador Backend Node.js &amp; DevOps — Scalboost</h3>
+          <p class="dates">Julio 2024 – presente · Medellín, Colombia</p>
+          <ul>
+            <li>Desarrollo de servicios backend con Node.js y TypeScript.</li>
+            <li>Operación de infraestructura cloud en AWS: despliegues, contenedores Docker y pipelines CI/CD.</li>
+            <li>Observabilidad y monitoreo de servicios en producción.</li>
+            <li>Automatización de procesos con n8n e integraciones con IA.</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Desarrollador JavaScript FullStack — One Consultants SAS</h3>
+          <p class="dates">Septiembre 2022 – Marzo 2024 · Medellín, Colombia</p>
+          <ul>
+            <li>Construcción de APIs REST y GraphQL con Node.js, NestJS y Apollo Server.</li>
+            <li>Desarrollo de interfaces con React y Angular (SPA y SSR).</li>
+            <li>Integración de ORMs, autenticación y seguridad web; testing automatizado.</li>
+            <li>Gestión de ciclos de entrega con Azure DevOps y CI/CD.</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Desarrollador web full stack — e-manager</h3>
+          <p class="dates">Marzo 2022 – Agosto 2022</p>
+          <ul>
+            <li>Desarrollo y mantenimiento de aplicaciones web full stack con JavaScript.</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Practicante de desarrollo de software — Grupo Éxito</h3>
+          <p class="dates">Agosto 2021 – Febrero 2022 · Envigado, Colombia</p>
+          <ul>
+            <li>Apoyo al equipo de desarrollo de software en una de las mayores cadenas de retail de Colombia.</li>
+          </ul>
+        </article>
+
+        <article>
+          <h3>Programador web — Autónomo</h3>
+          <p class="dates">Febrero 2021 – Agosto 2021 · Medellín, Colombia</p>
+          <ul>
+            <li>Soluciones web para dar visibilidad a negocios locales.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <h2>Habilidades</h2>
+        <ul class="skills">
+          <li><strong>Backend:</strong> Node.js, TypeScript, NestJS, GraphQL, Apollo Server, REST APIs, microservicios, ORM</li>
+          <li><strong>DevOps:</strong> AWS, Docker, CI/CD, Azure DevOps, observabilidad</li>
+          <li><strong>Frontend:</strong> React, Next.js, Astro, Angular, SSR, SPA</li>
+          <li><strong>Otros:</strong> Autenticación y seguridad web, testing, automatización con n8n e IA</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Educación</h2>
+        <article>
+          <h3>Técnico en Programación de Software — SENA</h3>
+          <p class="dates">Enero 2021 – Febrero 2022 · Desarrollo de aplicaciones web</p>
+        </article>
+        <article>
+          <h3>Platzi — Formación continua</h3>
+          <p class="dates">
+            Cursos de Docker, JavaScript práctico, Frontend Developer, manipulación del DOM y
+            pensamiento lógico (algoritmos y diagramas de flujo).
+          </p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Idiomas</h2>
+        <ul>
+          <li>Español — nativo</li>
+          <li>Inglés — técnico/profesional</li>
+        </ul>
+      </section>
+    </main>
+    <Footer />
+    <style>
+      .cv-header {
+        padding-bottom: 1.5em;
+        border-bottom: 2px solid rgb(var(--gray-light));
+        margin-bottom: 2em;
+      }
+      h1 {
+        font-size: 2.2em;
+      }
+      .role {
+        font-size: 1.2em;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 0.25em;
+      }
+      .meta {
+        color: rgb(var(--gray));
+        font-size: 0.9em;
+      }
+      .downloads {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6em;
+        margin-top: 0.75em;
+      }
+      .btn {
+        display: inline-block;
+        padding: 0.5em 1em;
+        border: 2px solid var(--accent);
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9em;
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      section {
+        margin-bottom: 2em;
+      }
+      h2 {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+      }
+      h3 {
+        font-size: 1.05em;
+        margin-bottom: 0.1em;
+      }
+      article {
+        margin-bottom: 1.25em;
+      }
+      .dates {
+        color: rgb(var(--gray));
+        font-size: 0.85em;
+        margin-bottom: 0.4em;
+      }
+      ul {
+        margin: 0;
+        padding-left: 1.2em;
+        font-size: 0.95em;
+      }
+      .skills {
+        list-style: none;
+        padding: 0;
+      }
+      .skills li {
+        margin-bottom: 0.4em;
+      }
+    </style>
+  </body>
+</html>

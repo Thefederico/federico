@@ -2,16 +2,59 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import { AUTHOR, SITE_URL } from '../consts';
 
 interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	lang?: 'es' | 'en';
+	/** Path of this page in the other language, e.g. '/en/' for '/' */
+	altPath?: string;
+	/** Path of this page in its own language (defaults to current path) */
+	selfPath?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const {
+	title,
+	description,
+	image = '/blog-placeholder-1.jpg',
+	lang = 'es',
+	altPath,
+	selfPath = Astro.url.pathname,
+} = Astro.props;
+
+const altLang = lang === 'es' ? 'en' : 'es';
+
+const personSchema = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: AUTHOR.name,
+	jobTitle: lang === 'es' ? AUTHOR.jobTitleEs : AUTHOR.jobTitleEn,
+	url: SITE_URL,
+	email: `mailto:${AUTHOR.email}`,
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Medellín',
+		addressRegion: 'Antioquia',
+		addressCountry: 'CO',
+	},
+	sameAs: [AUTHOR.linkedin, AUTHOR.github],
+	knowsAbout: [
+		'Node.js',
+		'TypeScript',
+		'NestJS',
+		'AWS',
+		'Docker',
+		'CI/CD',
+		'DevOps',
+		'GraphQL',
+		'React',
+		'Microservices',
+	],
+});
 ---
 
 <!-- Global Metadata -->
@@ -19,6 +62,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
+<link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Font preloads -->
 <link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
@@ -27,21 +71,37 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<!-- Hreflang alternates -->
+{altPath && <link rel="alternate" hreflang={lang} href={new URL(selfPath, Astro.site)} />}
+{altPath && <link rel="alternate" hreflang={altLang} href={new URL(altPath, Astro.site)} />}
+{altPath && (
+	<link
+		rel="alternate"
+		hreflang="x-default"
+		href={new URL(lang === 'es' ? selfPath : altPath, Astro.site)}
+	/>
+)}
+
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content={AUTHOR.name} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(image, Astro.site)} />
+<meta property="og:locale" content={lang === 'es' ? 'es_CO' : 'en_US'} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={new URL(image, Astro.site)} />
+
+<!-- Structured data -->
+<script type="application/ld+json" set:html={personSchema} />

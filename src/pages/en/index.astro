@@ -1,75 +1,75 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { AUTHOR } from "../consts";
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { AUTHOR } from "../../consts";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <BaseHead
-      title="Federico Upegui | Desarrollador Backend Node.js y DevOps"
-      description="Desarrollador Backend Node.js y DevOps en Medellín, Colombia. Construyo APIs, microservicios e infraestructura en AWS con Docker, CI/CD y automatización con IA."
-      lang="es"
-      selfPath="/"
-      altPath="/en/"
+      title="Federico Upegui | Node.js Backend & DevOps Developer"
+      description="Node.js Backend & DevOps developer based in Medellín, Colombia. I build APIs, microservices and AWS cloud infrastructure with Docker, CI/CD and AI automation."
+      lang="en"
+      selfPath="/en/"
+      altPath="/"
     />
   </head>
   <body>
-    <Header lang="es" altPath="/en/" />
+    <Header lang="en" altPath="/" />
     <main>
       <section class="hero">
-        <p class="eyebrow">Hola, soy Federico 👋</p>
-        <h1>Desarrollador Backend Node.js <span class="amp">&amp;</span> DevOps</h1>
+        <p class="eyebrow">Hi, I'm Federico 👋</p>
+        <h1>Node.js Backend <span class="amp">&amp;</span> DevOps Developer</h1>
         <p class="lead">
-          Construyo APIs, microservicios e infraestructura cloud que escalan. Más de 4 años
-          desarrollando con JavaScript y TypeScript desde Medellín, Colombia — actualmente
-          en <strong>Scalboost</strong>, donde combino backend en Node.js con DevOps sobre AWS.
+          I build APIs, microservices and cloud infrastructure that scale. 4+ years working
+          with JavaScript and TypeScript from Medellín, Colombia — currently at
+          <strong>Scalboost</strong>, combining Node.js backend work with DevOps on AWS.
         </p>
         <div class="cta">
-          <a class="btn primary" href={`mailto:${AUTHOR.email}`}>Contáctame</a>
-          <a class="btn" href="/cv">Ver mi CV</a>
-          <a class="btn" href="/CV-Federico-Upegui-ES.pdf" download>Descargar CV (PDF)</a>
+          <a class="btn primary" href={`mailto:${AUTHOR.email}`}>Get in touch</a>
+          <a class="btn" href="/en/cv">View resume</a>
+          <a class="btn" href="/CV-Federico-Upegui-EN.pdf" download>Download resume (PDF)</a>
         </div>
       </section>
 
       <section>
-        <h2>¿En qué puedo ayudarte?</h2>
+        <h2>What I can help you with</h2>
         <div class="grid">
           <article>
-            <h3>APIs y backends</h3>
+            <h3>APIs &amp; backends</h3>
             <p>
-              APIs REST y GraphQL con Node.js, NestJS y TypeScript. Arquitecturas de
-              microservicios, autenticación y seguridad web, ORMs y testing.
+              REST and GraphQL APIs with Node.js, NestJS and TypeScript. Microservice
+              architectures, authentication and web security, ORMs and testing.
             </p>
           </article>
           <article>
-            <h3>DevOps e infraestructura</h3>
+            <h3>DevOps &amp; infrastructure</h3>
             <p>
-              Despliegues en AWS, contenedores con Docker, pipelines CI/CD en Azure DevOps
-              y observabilidad para que tu producto no se caiga cuando más importa.
+              AWS deployments, Docker containers, CI/CD pipelines on Azure DevOps and
+              observability so your product stays up when it matters most.
             </p>
           </article>
           <article>
-            <h3>Automatización con IA</h3>
+            <h3>AI automation</h3>
             <p>
-              Flujos de automatización con n8n e integraciones con IA para eliminar trabajo
-              repetitivo en negocios y equipos de producto.
+              Automation workflows with n8n and AI integrations that remove repetitive
+              work for businesses and product teams.
             </p>
           </article>
         </div>
       </section>
 
       <section>
-        <h2>Stack principal</h2>
+        <h2>Core stack</h2>
         <ul class="stack">
           <li>Node.js</li>
           <li>TypeScript</li>
           <li>NestJS</li>
           <li>GraphQL</li>
           <li>REST APIs</li>
-          <li>Microservicios</li>
+          <li>Microservices</li>
           <li>AWS</li>
           <li>Docker</li>
           <li>CI/CD</li>
@@ -78,35 +78,34 @@ import { AUTHOR } from "../consts";
           <li>Next.js</li>
           <li>Astro</li>
           <li>n8n</li>
-          <li>Observabilidad</li>
+          <li>Observability</li>
         </ul>
       </section>
 
       <section>
-        <h2>Experiencia reciente</h2>
+        <h2>Recent experience</h2>
         <ul class="timeline">
           <li>
-            <strong>Scalboost</strong> — Desarrollador Backend Node.js &amp; DevOps
-            <span class="dates">jul 2024 – presente · Medellín</span>
+            <strong>Scalboost</strong> — Node.js Backend &amp; DevOps Developer
+            <span class="dates">Jul 2024 – present · Medellín</span>
           </li>
           <li>
-            <strong>One Consultants SAS</strong> — Desarrollador JavaScript FullStack
-            <span class="dates">sep 2022 – mar 2024 · Medellín</span>
+            <strong>One Consultants SAS</strong> — FullStack JavaScript Developer
+            <span class="dates">Sep 2022 – Mar 2024 · Medellín</span>
           </li>
           <li>
-            <strong>e-manager</strong> — Desarrollador web full stack
-            <span class="dates">mar 2022 – ago 2022</span>
+            <strong>e-manager</strong> — Full stack web developer
+            <span class="dates">Mar 2022 – Aug 2022</span>
           </li>
         </ul>
-        <p><a href="/cv">Ver el CV completo →</a></p>
+        <p><a href="/en/cv">View full resume →</a></p>
       </section>
 
       <section class="contact">
-        <h2>Trabajemos juntos</h2>
+        <h2>Let's work together</h2>
         <p>
-          ¿Necesitas un backend sólido, mejorar tu infraestructura o automatizar procesos?
-          Escríbeme a
-          <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a> o conecta conmigo en
+          Need a solid backend, better infrastructure or process automation? Email me at
+          <a href={`mailto:${AUTHOR.email}`}>{AUTHOR.email}</a> or connect on
           <a href={AUTHOR.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>.
         </p>
       </section>
